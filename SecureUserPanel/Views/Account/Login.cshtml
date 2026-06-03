@@ -1,0 +1,21 @@
+@model LoginViewModel
+@{ ViewData["Title"] = "Login"; }
+
+<h1>Login</h1>
+
+<form method="post">
+    @Html.AntiForgeryToken()
+    <div asp-validation-summary="All" class="error"></div>
+
+    <label asp-for="Email">Email</label>
+    <input asp-for="Email" type="email" />
+    <span asp-validation-for="Email" class="field-validation-error"></span>
+
+    <label asp-for="Password">Password</label>
+    <input asp-for="Password" type="password" />
+    <span asp-validation-for="Password" class="field-validation-error"></span>
+
+    <button type="submit">Login</button>
+</form>
+
+<p style="margin-top:1rem">No account yet? <a asp-controller="Account" asp-action="Register">Register</a></p>

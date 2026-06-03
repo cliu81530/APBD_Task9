@@ -1,0 +1,22 @@
+@model IEnumerable<AppUser>
+@{ ViewData["Title"] = "Admin Panel"; }
+
+<h1>Admin Panel</h1>
+<p>All registered users:</p>
+
+<table>
+    <thead>
+        <tr><th>Id</th><th>Email</th><th>Role</th><th>Registered</th></tr>
+    </thead>
+    <tbody>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.Id</td>
+            <td>@user.Email</td>
+            <td>@user.Role</td>
+            <td>@user.CreatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+        </tr>
+    }
+    </tbody>
+</table>
